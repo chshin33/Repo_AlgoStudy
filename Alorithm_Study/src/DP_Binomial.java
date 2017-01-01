@@ -29,16 +29,16 @@ public class DP_Binomial {
 		long Answer;
 		long startTime;
 		
-		N = 126;
-		K = 63;
+		N = 5;
+		K = 3;
 		M = new long[N+1][K+1];
 		B = new long[N+1][K+1];		
 		
-		//1) Recursive
-		/*startTime = System.currentTimeMillis();
+		//1) 완전탐색
+		startTime = System.currentTimeMillis();
 		Answer = binomial_Recursive(N,K);
 		System.out.println("1) Recursive : " + Answer 
-				+ ", Time:" + (System.currentTimeMillis()-startTime)/1000.0);*/
+				+ ", Time:" + (System.currentTimeMillis()-startTime)/1000.0);
 		
 		//2) Memoization(메모이제이션)
 		startTime = System.currentTimeMillis();

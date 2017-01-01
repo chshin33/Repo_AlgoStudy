@@ -37,7 +37,7 @@ public class DP_Binomial {
 		//1) 완전탐색
 		startTime = System.currentTimeMillis();
 		Answer = binomial_Recursive(N,K);
-		System.out.println("1) Recursive : " + Answer 
+		System.out.println("1) 완전탐색 : " + Answer 
 				+ ", Time:" + (System.currentTimeMillis()-startTime)/1000.0);
 		
 		//2) Memoization(메모이제이션)

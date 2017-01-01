@@ -28,7 +28,7 @@ public class DP_MatrixShort {
 
 		//1) Recursive 방식
 		Answer = MatrixShort_Recursive(N,N);
-		System.out.println("1) Recursive 방식 : " + Answer);
+		System.out.println("1) 완전탐색 : " + Answer);
 
 		//2) Memoization 방식
 		//메모 테이블 초기화 : -1
@@ -37,7 +37,7 @@ public class DP_MatrixShort {
 				M[i][j] = -1;
 
 		Answer = MatrixShort_Memo(N,N);
-		System.out.println("1) Memoization 방식 : " + Answer);
+		System.out.println("2) Memoization : " + Answer);
 
 		//3) BottomUP 방식
 		Answer = MatrixShort_BottomUP();

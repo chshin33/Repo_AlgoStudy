@@ -51,7 +51,7 @@ public class DP_Knapsack_Bound {
 			}
 		}
 		Answer = KS_memoization(N, W);
-		System.out.println("Top-Down: " + Answer);
+		System.out.println("Memoization(Top-Down): " + Answer);
 
 		sc.close();
 	}

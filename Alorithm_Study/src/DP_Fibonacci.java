@@ -11,7 +11,7 @@ public class DP_Fibonacci {
 	public static void main(String[] args) {
 		//1) 완전탐색
 		Answer = fibo_Recursive(N);
-		System.out.println("Recursive함수 : " + Answer);
+		System.out.println("완전탐색 : " + Answer);
 		
 		//2) Memoization
 		for(int i=0; i< M.length; i++){

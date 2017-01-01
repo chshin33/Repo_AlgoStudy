@@ -1,3 +1,11 @@
+/* 외발뛰기(문제ID, JUMPGAME)
+ 게임판이 주어질때, 시작점에서 끝점으로 도달하는 방법이 존재하는지 확인
+
+ jump(y,x) : (y,x) 에서부터 맨 마지막 칸까지 도달할수 있는지 여부를 반환
+ 
+ jump(y,x) = jump(y + jumpSize, x) || jump(y, x + jumpSize);
+ 
+ */
 import java.io.FileInputStream;
 import java.util.Scanner;
 
@@ -38,17 +46,21 @@ public class Algospot_DP_JumpGame {
 				}
 			}
 			
-//			bAnswer = false;
-//			bAnswer = jump(1,1);
-//			
-//			if(bAnswer == true)
-//				System.out.println("YES");
-//			else
-//				System.out.println("NO");
+			//1) 완전탐색
+			bAnswer = false;
+			bAnswer = jump(1,1);
 			
+			System.out.print("#" + test_case + " 완전탐색 : ");
+			if(bAnswer == true)
+				System.out.println("YES");
+			else
+				System.out.println("NO");
+			
+			//2) Memoization
 			nAnswer = 0;
 			nAnswer = jump2(1,1);
 			
+			System.out.print("#" + test_case + " Memoization : ");
 			if(nAnswer == 1)
 				System.out.println("YES");
 			else
@@ -57,7 +69,7 @@ public class Algospot_DP_JumpGame {
 		}
 		
 		//소요시간 구하기
-		//System.out.println("Elapsed Time: " + (System.currentTimeMillis() - startTime)/1000.0 );
+		System.out.println("Elapsed Time: " + (System.currentTimeMillis() - startTime)/1000.0 );
 		sc.close();
 	}//end of main
 	

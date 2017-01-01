@@ -1,7 +1,7 @@
 /* 두니발 박사의 탈옥 : 정올ID, NUMBERS
  감옥에서 출발하여, D일 후에 지정된 마을에 있을 확률을 계산
  
-search(i, days) = ∑   search(j, days+1) / |adj(i)|
+search(i, days) = ∑   search(j, days+1) / | adj(i) |
                        j ∈ adj(i)
  */
 import java.io.FileInputStream;

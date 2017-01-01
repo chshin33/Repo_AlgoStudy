@@ -9,10 +9,7 @@ public class DP_Fibonacci {
 	static int[] B = new int[N+1];
 	
 	public static void main(String[] args) {
-		
-
-		
-		//1) Recursive함수
+		//1) 완전탐색
 		Answer = fibo_Recursive(N);
 		System.out.println("Recursive함수 : " + Answer);
 		
@@ -24,7 +21,7 @@ public class DP_Fibonacci {
 		Answer = fibo_Memoization(N);
 		System.out.println("Memoization : " + Answer);
 		
-		//3) Bottopup
+		//3) Bottomup
 		Answer = fibo_Bottomup(N);
 		System.out.println("Bottomup : " + Answer);
 

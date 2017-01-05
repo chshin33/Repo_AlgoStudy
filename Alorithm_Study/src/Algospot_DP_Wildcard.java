@@ -11,13 +11,11 @@ help
 papa
 hello
  */
-
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Algospot_DP_Wildcard {
-	
+public class Algospot_DP_Wildcard {	
 	static int[][] M = new int[101][101];
 	static String W;
 	static String S;	

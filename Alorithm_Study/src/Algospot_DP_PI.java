@@ -1,6 +1,3 @@
-import java.io.FileInputStream;
-import java.util.Scanner;
-
 /*
 가끔 TV 에 보면 원주율을 몇만 자리까지 줄줄 외우는 신동들이 등장하곤 합니다. 
 이들이 이 수를 외우기 위해 사용하는 방법 중 하나로, 숫자를 몇 자리 이상 끊어 외우는 것이 있습니다. 
@@ -31,6 +28,10 @@ import java.util.Scanner;
 2
 14
  */
+
+import java.io.FileInputStream;
+import java.util.Scanner;
+
 public class Algospot_DP_PI {
 
 	static String N;

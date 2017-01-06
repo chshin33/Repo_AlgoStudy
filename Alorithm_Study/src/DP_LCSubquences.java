@@ -1,11 +1,16 @@
-/* Longest Common Subsequences
+/* Longest Common Subsequences : 권오흠
+
+L[i, j] : 문자열 X=x1x2x3--xi  와  Y = y1y2y3---yj 의 LCS의 길이
+ 
+L[i, j] = L[i-1, j-1] + 1                  if xi = yi
+L[i, j] = max( L[i-1, j], L[i, j-1] )   otherwise 
 
 */
 public class DP_LCSubquences {
 
 	static char[] X = {'A','B','C','B','D','A','B'};
 	static char[] Y = {'B','D','C','A','B','A'};
-	static int[][] M;
+	static int[][] B;
 	static char[][] Path;
 	static char[] strLCS;
 	static int Answer;
@@ -14,7 +19,7 @@ public class DP_LCSubquences {
 		int lenX = X.length;
 		int lenY = Y.length;
 		
-		M = new int[lenX+1][lenY+1];
+		B = new int[lenX+1][lenY+1];
 		Path = new char[lenX+1][lenY+1];
 		
 		Answer = LCS_Bottomup(lenX, lenY);
@@ -30,6 +35,28 @@ public class DP_LCSubquences {
 		//재귀호출로 출력
 		PrintLCS_Recursive(lenX, lenY);
 	}
+	
+	static int LCS_Bottomup(int lenX,  int lenY){
+		for(int i=1; i<=lenX; i++){
+			for(int j=1; j<=lenY; j++){
+				if(X[i-1]==Y[j-1]){
+					B[i][j] = B[i-1][j-1] + 1;
+					Path[i][j] = '↖';
+				}
+				else{
+					if(B[i-1][j] >= B[i][j-1]){
+						B[i][j] =  B[i-1][j];
+						Path[i][j] = '↑'; 
+					}
+					else{
+						B[i][j] =  B[i][j-1];
+						Path[i][j] = '←'; 
+					}
+				}
+			}
+		}
+		return B[lenX][lenY];
+	}	
 	
 	static void PrintLCS_Recursive(int i, int j){
 		if(i<1 || j<1){
@@ -79,28 +106,6 @@ public class DP_LCSubquences {
 		for(int n=strLCS.length-1;n>=0;n--){
 			System.out.print(strLCS[n] + " ");
 		}
-	}
-	
-	static int LCS_Bottomup(int lenX,  int lenY){
-		for(int i=1; i<=lenX; i++){
-			for(int j=1; j<=lenY; j++){
-				if(X[i-1]==Y[j-1]){
-					M[i][j] = M[i-1][j-1] + 1;
-					Path[i][j] = '↖';
-				}
-				else{
-					if(M[i-1][j] >= M[i][j-1]){
-						M[i][j] =  M[i-1][j];
-						Path[i][j] = '↑'; 
-					}
-					else{
-						M[i][j] =  M[i][j-1];
-						Path[i][j] = '←'; 
-					}
-				}
-			}
-		}
-		return M[lenX][lenY];
 	}
 	
 	static void PrintPath(int lenX,  int lenY){

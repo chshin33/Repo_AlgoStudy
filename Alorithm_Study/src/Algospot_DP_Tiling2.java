@@ -1,3 +1,10 @@
+/* 타일링 방법수(문제ID : Tiling2)
+
+Tiling(n) = 2*n 크기의 사각형을 타일로 덮는 방법
+
+Tiling(n) = Tiling(n-1) + Tiling(n-2)
+
+ */
 import java.util.Arrays;
 
 public class Algospot_DP_Tiling2 {

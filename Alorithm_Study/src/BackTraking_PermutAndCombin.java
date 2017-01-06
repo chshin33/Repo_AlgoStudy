@@ -1,6 +1,9 @@
 /* 순열 및 조합 출력
+
  nPr = n! / (n-r)!
+ 
  nCr = n! / r!*(n-r)!
+ 
  */
 import java.util.Arrays;
 
@@ -17,7 +20,7 @@ public class BackTraking_PermutAndCombin {
 		R=3;
 		sol = new int[R];
 		
-		//1)FOR 문으로 구하기
+		//1)조합 : nCr, For문으로  구하기
 		idx = 1;
 		System.out.println("조합 : FOR문으로");
 		for(int i =0; i <= N-R; i++){
@@ -29,7 +32,7 @@ public class BackTraking_PermutAndCombin {
 			}
 		}
 		
-		//2)재귀호출로 구하기
+		//2)조합 : nCr, 재귀호출
 		idx = 1;
 		System.out.println("조합 : 재귀호출");
 		Combi(0, R);
@@ -48,6 +51,7 @@ public class BackTraking_PermutAndCombin {
 		perm(0,R);		
 	}
 	
+	//조합 : nCr, 재귀호출
 	public static void Combi(int start, int R){
 	       if (R == 0){
 	           process(); 
@@ -61,6 +65,7 @@ public class BackTraking_PermutAndCombin {
 	        }
 	}
 	
+	//순열 : nPr, n==r 일때
 	public static void perm(int n){
 		if(n==N){
 			process();
@@ -78,6 +83,7 @@ public class BackTraking_PermutAndCombin {
 		}
 	}
 	
+	//순열 : nPr, n > r 일때
 	public static void perm(int n, int R){
 		if(R==0){
 			process();

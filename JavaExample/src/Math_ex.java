@@ -18,6 +18,6 @@ public class Math_ex {
 		//System.out.println(n);
 		//System.out.println(n/1000);
 		System.out.println(k);	
-	*/}
-
+	*/
+	}
 }

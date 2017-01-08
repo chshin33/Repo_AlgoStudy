@@ -22,7 +22,5 @@ public class Sort_selection {
 		for(int n : list){
 			System.out.print(n);
 		}
-		
 	}
-
 }

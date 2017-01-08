@@ -17,10 +17,6 @@ public class StringTest {
 		System.out.println(str);
 		
 		System.out.println(Integer.parseInt(str));
-		
-		
-		
-
 	}
-
+	
 }

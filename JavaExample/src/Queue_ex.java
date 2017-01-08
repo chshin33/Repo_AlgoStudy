@@ -16,5 +16,4 @@ public class Queue_ex {
 			System.out.println(str);
 		}
 	}
-
 }

@@ -1,7 +1,14 @@
 /* 동적계획법 - KnapSack(0-1 knapsack, Bounded)
+N개 물건의 수, 최대담을수 있는 용량 W, 0/1(선택한것 다시 선택못함)
 
-pack(capacity, item) : 캐리어 용량이 capacity만큼 남았을때, item이후의 물건들을 싸서 얻을수
-있는 최대 가치(절박도)
+pack(n, w) : 캐리어 용량이 w만큼 남았을때, n 이후의 물건들을 싸서 얻을수 있는 최대 가치(절박도)
+
+pack(n, w)  = 0                                                                                  if n=N
+                      pack(n+1,w)                                                                 if w < Wi[n]
+                      Max( pack(n+1,w) , pack(n+1, w - Wi[n]) + Pi[n] )       if item=N
+
+해당물건을 가져가는 경우 : pack(n+1, w - Wi[n]) + Pi[n]
+해당물건을 안가져간 경우 : pack(n+1, w) 
 
  */
 
@@ -68,37 +75,37 @@ public class DP_Knapsack_Bound_New {
 
 	}
 	
-	static int pack(int item, int capacity){
-		if(item == N){
+	static int pack(int n, int w){
+		if(n == N){
 			return 0;
 		}
-		if(M[item][capacity] != -1){
-			return M[item][capacity];
+		if(M[n][w] != -1){
+			return M[n][w];
 		}
 		
 		//용량이 안되어 못 담는 경우
-		if(capacity < Wi[item]){
-			M[item][capacity] = pack(item+1, capacity);
+		if(w < Wi[n]){
+			M[n][w] = pack(n+1, w);
 		}
 		else{//담을수 있는 경우
-			M[item][capacity] = Math.max(pack(item+1, capacity), 
-					pack(item+1, capacity-Wi[item]) + Pi[item]);
+			M[n][w] = Math.max(pack(n+1, w), 
+					pack(n+1, w-Wi[n]) + Pi[n]);
 		}
 		
-		return M[item][capacity];
+		return M[n][w];
 	}
 	
-	static void reconstruct(int item, int capacity){
-		if(item == N)
+	static void reconstruct(int n, int w){
+		if(n == N)
 			return;
 		
 		//item을 선택하지 않았다(가방에 안넣었다)
-		if(pack(item, capacity) == pack(item+1, capacity)){
-			reconstruct(item+1, capacity);
+		if(pack(n, w) == pack(n+1, w)){
+			reconstruct(n+1, w);
 		}
 		else{//item을 선택했다
-			itemList.add(Name[item]);
-			reconstruct(item+1, capacity-Wi[item]);
+			itemList.add(Name[n]);
+			reconstruct(n+1, w-Wi[n]);
 		}
 	}
 

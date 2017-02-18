@@ -2,8 +2,11 @@
 public class Math_ex {
 
 	public static void main(String[] args) {
-
-		double n = 2.34476565;
+		
+		double n = (double)2/3;
+		System.out.println(n);
+		
+		n = 2.34476565;
 		
 		System.out.println(n);
 		
